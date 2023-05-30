@@ -8,9 +8,11 @@ import { Service} from './thesaurus.service';
 })
 
 export class ThesaurusComponent {
+  //Language code-name pairs
   languages = new Map<string, string>();
   keys: string[] = [];
 
+  //Synonyms
   result:string[] = [];
 
   selectedLanguage : string = '';
@@ -20,6 +22,7 @@ export class ThesaurusComponent {
 
   constructor(private service: Service){}
 
+  //Sets language code-name pairs
   ngOnInit(){
     this.languages.set('English (US)', 'en_US');
     this.languages.set('English (UK)', 'en_GB');
@@ -39,24 +42,36 @@ export class ThesaurusComponent {
     this.languages.set('Russian (Russia)', 'ru_RU');
     this.languages.set('Slovak (Slovakia)', 'sk_SK');
 
-    
+    //Sets keys from the map
     this.keys = Array.from(this.languages.keys());
   }
 
-  onClick(){
+  //Removes error message if selectbox value changes
+  onSelectboxChanged(){
+    this.errorMessageForSynonyms = '';
+  }
+
+  //Removes error message if input field changes
+  onTextareaChange(){
+    this.errorMessageForSynonyms = '';
+  }
+
+  synonyms(){
+    //Finds the text input and get it's value
     const textInput = document.getElementById('text-input') as HTMLTextAreaElement;
     const inputValue = textInput.value;
 
     if(this.selectedLanguage == undefined || this.selectedLanguage == "" ||  inputValue == ""){
       if(this.selectedLanguage == undefined ||this.selectedLanguage == "")
-        this.errorMessage = 'Please select language';  
+        this.errorMessage = 'Please select language';  //If language is not selected
       else if(inputValue == "")
-        this.errorMessage = 'Please provide input text.';  
+        this.errorMessage = 'Please provide input text.';  //If input field is empty
 
       setTimeout(() => {
         this.errorMessage = '';
       }, 3000); 
     }else {
+      //Gets language code based on the language name
       this.selectedLanguageCode = this.languages.get(this.selectedLanguage);
       if(this.selectedLanguageCode != undefined)
         this.service.getSynonyms(this.selectedLanguageCode,inputValue).subscribe(
@@ -64,16 +79,12 @@ export class ThesaurusComponent {
             this.result = [];
             this.errorMessageForSynonyms = '';
             for(const element of response.response){
-              this.result = this.result.concat(element.list.synonyms.split("|"));
+              this.result = this.result.concat(element.list.synonyms.split("|")); //Fill result array with synonyms
             }
-
-            console.log(this.result);
           }, 
           error =>{
-            console.log(error);
-            
             this.result = [];
-            this.errorMessageForSynonyms = 'No synonyms found';
+            this.errorMessageForSynonyms = 'No synonyms found'; // Display error it there's no synonyms
           }
         );
    }

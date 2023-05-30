@@ -1,15 +1,15 @@
 <div class="select-container">
     <div class="select-box">
       <h2 class="select-label">Language</h2>
-      <dx-select-box [(value)]="selectedLanguage" class="custom-select-box" [dataSource]="keys"></dx-select-box>
+      <dx-select-box [(value)]="selectedLanguage" class="custom-select-box" [dataSource]="keys" (onValueChanged)="onSelectboxChanged()"></dx-select-box>
 </div>
 
 <div class="text-contanier">
-    <textarea id="text-input"></textarea>
+    <textarea id="text-input" (input)="onTextareaChange()"></textarea>
 </div>
 
 <div class="button-container">
-    <button id="translate-button" (click)="onClick()">Synonyms</button>
+    <button id="translate-button" (click)="synonyms()">Synonyms</button>
     <div class="error-message" [hidden]="!errorMessage">{{ errorMessage }}</div>
 </div>
 

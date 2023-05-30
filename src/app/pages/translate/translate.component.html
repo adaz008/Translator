@@ -16,7 +16,7 @@
 </div>
 
 <div class="button-container">
-    <button id="translate-button" (click)="onClick()">Translate</button>
+    <button id="translate-button" (click)="translate()">Translate</button>
     <div class="error-message" [hidden]="!errorMessage">{{ errorMessage }}</div>
     <div class="error-message-translate"[hidden]="!errorMessageForTranslate">{{ errorMessageForTranslate }}</div>
 </div>
