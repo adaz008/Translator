@@ -1,0 +1,41 @@
+<body>
+    <div class="select-container">
+        <div class="select-box">
+          <h2 class="select-label">From</h2>
+        <dx-select-box [(value)]="selectedSourceLanguage" class="custom-select-box" [dataSource]="keysLanguages"  (onValueChanged)="onSourceChanged($event)"></dx-select-box>
+        </div>
+        <div class="select-box">
+          <h2 class="select-label">To</h2>
+          <dx-select-box [(value)]="selectedTargetLanguage" class="custom-select-box" [dataSource]="valuesLanguage" (onValueChanged)="onTargetChanged($event)"></dx-select-box>
+        </div>
+</div>
+          
+
+<div class="text-contanier">
+    <textarea id="text-input" (input)="onTextareaChange()"></textarea>
+</div>
+
+<div class="button-container">
+    <button id="translate-button" (click)="onClick()">Translate</button>
+    <div class="error-message" [hidden]="!errorMessage">{{ errorMessage }}</div>
+    <div class="error-message-translate"[hidden]="!errorMessageForTranslate">{{ errorMessageForTranslate }}</div>
+</div>
+
+<div class="word-details-contanier">
+    <div class="word-details">
+        <div>
+            <span class="label">Translated Word:</span>
+            <span> {{translatedWord.text}}</span>
+        </div>
+        <div>
+            <span class="label">Type:</span>
+            <span>{{translatedWord.pos}}</span>
+        </div>
+        <div>
+            <span class="label">Gender:</span>
+            <span>{{translatedWord.gen}}</span>
+        </div>
+    </div>
+</div>
+
+</body>

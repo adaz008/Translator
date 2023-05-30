@@ -1,0 +1,134 @@
+.custom-select-box {
+  border: 1px solid #000;
+  width: 400px;
+  height: 40px;
+  background-color: lightblue;
+}
+
+.dx-field{
+  margin-top: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.text-contanier{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#text-input {
+  width: 825px;
+  height: 100px;
+  resize: none;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 17px;
+  border-radius: 4px;
+  background-color: lightblue;
+  color: #000;
+  border: none;
+  transition: background-color 0.3s ease;
+  width: 150px;
+  height: 70px;
+}
+
+button:hover {
+  background-color: #B4B4B4;
+}
+
+#result {
+  width: 200px;
+  height: 50px;
+  resize: none;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.select-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.select-box {
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.select-label{
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 25px;
+}
+
+.error-message {
+  margin-top: 10px;
+  color: #ff0000;
+  font-size: 16px;
+}
+
+.word-details-contanier {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-right: 430px;
+}
+
+.word-details {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #fff;
+  width: 400px;
+  border-radius: 15px;
+}
+
+.word-details div {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.error-message-translate{
+  margin-top: 10px;
+  margin-left: 10px;
+  color: #ff0000;
+  font-size: 18px;
+  height: 50px;
+}
+
+

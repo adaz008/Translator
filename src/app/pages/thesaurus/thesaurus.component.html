@@ -1,0 +1,25 @@
+<div class="select-container">
+    <div class="select-box">
+      <h2 class="select-label">Language</h2>
+      <dx-select-box [(value)]="selectedLanguage" class="custom-select-box" [dataSource]="keys"></dx-select-box>
+</div>
+
+<div class="text-contanier">
+    <textarea id="text-input"></textarea>
+</div>
+
+<div class="button-container">
+    <button id="translate-button" (click)="onClick()">Synonyms</button>
+    <div class="error-message" [hidden]="!errorMessage">{{ errorMessage }}</div>
+</div>
+
+<div class="word-container">
+    <div *ngFor="let item of result">
+         <div class="word-details"  *ngIf="item !== ''">
+            <p>{{ item }}</p>
+        </div>
+    </div>
+    <label class="errorForSynonyms" *ngIf="errorMessageForSynonyms !== ''">{{errorMessageForSynonyms}}</label>
+</div>
+  
+  
